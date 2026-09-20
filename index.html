@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pixel Art Studio</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h1>👾 PIXEL STUDIO</h1>
+
+        <ul>
+            <li><a href="index.html">Studio</a></li>
+            <li><a href="#">Public Feed</a></li>
+            <li><a href="#">My Drafts</a></li>
+        </ul>
+    </nav>
+
+    <main class="wrapper">
+
+        <h2>Pixel Art Studio</h2>
+
+        <div class="title-meta">
+            <input
+                type="text"
+                id="artwork-title"
+                placeholder="Name your artwork..."
+            >
+        </div>
+
+        <div class="options">
+
+            <div class="slider">
+                <label for="width-range">Grid Width</label>
+                <input
+                    type="range"
+                    id="width-range"
+                    min="1"
+                    max="35"
+                    value="16"
+                >
+            </div>
+
+            <div class="slider">
+                <label for="height-range">Grid Height</label>
+                <input
+                    type="range"
+                    id="height-range"
+                    min="1"
+                    max="35"
+                    value="16"
+                >
+            </div>
+
+            <button id="submit-grid">Create Grid</button>
+
+        </div>
+
+        <div class="container">
+            <!-- Pixel grid will be created here -->
+        </div>
+
+    </main>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>
