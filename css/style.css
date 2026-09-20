@@ -130,3 +130,30 @@ button:hover {
 
     image-rendering: pixelated;
 }
+
+input[type="color"] {
+    width: 60px;
+    height: 40px;
+
+    padding: 0;
+
+    border: 2px solid #000;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+#erase-btn,
+#paint-btn {
+    background-color: white;
+}
+
+#erase-btn:hover,
+#paint-btn:hover {
+    background-color: #f4c531;
+}
+
+.selected {
+    box-shadow: 3px 3px 0 #000;
+    background-color: #f4c531;
+}
