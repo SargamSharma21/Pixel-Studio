@@ -7,7 +7,8 @@ const eraseBtn = document.getElementById("erase-btn");
 const paintBtn = document.getElementById("paint-btn");
 const widthValue = document.getElementById("width-value");
 const heightValue = document.getElementById("height-value");
-
+const clearBtn = document.getElementById("clear-btn");
+const titleInput = document.getElementById("artwork-title");
 
 // Canvas setup
 const canvas = document.getElementById("pixel-canvas");
@@ -15,6 +16,7 @@ const ctx = canvas.getContext("2d");
 
 
 // Application state
+let artworkTitle = "";
 let rows = 16;
 let cols = 16;
 let draw = false;
@@ -165,6 +167,8 @@ gridButton.addEventListener("click", () => {
         gridWidth.value
     );
 
+    console.log("Artwork:", artworkTitle);
+
 });
 
 
@@ -205,6 +209,35 @@ paintBtn.addEventListener("click", () => {
 
     paintBtn.classList.add("selected");
     eraseBtn.classList.remove("selected");
+
+});
+
+clearBtn.addEventListener("click", () => {
+
+    matrix = Array.from(
+        { length: rows },
+        () => Array(cols).fill("transparent")
+    );
+
+    renderCanvas();
+
+});
+
+titleInput.addEventListener("input", () => {
+
+    artworkTitle = titleInput.value.trim();
+
+});
+
+titleInput.addEventListener("input", () => {
+
+    if (titleInput.value.length > 50) {
+
+        titleInput.value =
+            titleInput.value.substring(0, 50);
+    }
+
+    artworkTitle = titleInput.value.trim();
 
 });
 

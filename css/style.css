@@ -157,3 +157,11 @@ input[type="color"] {
     box-shadow: 3px 3px 0 #000;
     background-color: #f4c531;
 }
+
+#clear-btn {
+    background-color: white;
+}
+
+#clear-btn:hover {
+    background-color: #f4c531;
+}
