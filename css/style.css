@@ -165,3 +165,11 @@ input[type="color"] {
 #clear-btn:hover {
     background-color: #f4c531;
 }
+
+#user-display {
+    font-weight: bold;
+    background-color: #f4c531;
+    padding: 6px 10px;
+    border: 2px solid #000;
+    border-radius: 4px;
+}

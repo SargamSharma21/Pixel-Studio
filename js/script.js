@@ -1,3 +1,9 @@
+const currentUser = localStorage.getItem("logged_in_user");
+
+if (!currentUser) {
+    window.location.href = "login.html";
+}
+
 const container = document.querySelector(".container");
 const colorButton = document.getElementById("color-input");
 const gridButton = document.getElementById("submit-grid");
@@ -9,6 +15,9 @@ const widthValue = document.getElementById("width-value");
 const heightValue = document.getElementById("height-value");
 const clearBtn = document.getElementById("clear-btn");
 const titleInput = document.getElementById("artwork-title");
+const userDisplay = document.getElementById("user-display");
+
+
 
 // Canvas setup
 const canvas = document.getElementById("pixel-canvas");
@@ -21,6 +30,7 @@ let rows = 16;
 let cols = 16;
 let draw = false;
 let erase = false;
+let currentDraftId = null;
 
 const CELL_SIZE = 20;
 
@@ -241,6 +251,50 @@ titleInput.addEventListener("input", () => {
 
 });
 
+if (currentUser) {
+    userDisplay.innerText =
+        `Welcome, ${currentUser}`;
+}
+
+
+const saveDraftBtn =
+    document.getElementById("save-draft-btn");
+
+
+saveDraftBtn.addEventListener("click", () => {
+
+    const title =
+        titleInput.value.trim() || "Untitled Draft";
+
+    let drafts =
+        JSON.parse(localStorage.getItem("pixel_drafts")) || [];
+
+    const draftData = {
+
+        id: Date.now().toString(),
+
+        owner: currentUser,
+
+        title: title,
+
+        rows: rows,
+
+        cols: cols,
+
+        matrix: matrix
+    };
+
+    drafts.push(draftData);
+
+    localStorage.setItem(
+        "pixel_drafts",
+        JSON.stringify(drafts)
+    );
+
+    currentDraftId = draftData.id;
+
+    alert("Draft saved!");
+});
 // Initial grid
 createGrid(16, 16);
 
